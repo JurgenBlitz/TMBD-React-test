@@ -1,0 +1,26 @@
+.detail-page-container {
+  padding: 24px 36px;
+  .detail-page_backbtn-container {
+    .detail-page_backbtn {
+      font-weight: 600;
+      font-size: 20px;
+      background: transparent;
+      border: transparent;
+      padding: 0;
+    }
+  }
+  .media-details-container {
+    display: flex;
+    margin-top: 16px;;
+    img {
+      border-radius: 24px
+    }
+    .media-details-textelements {
+      margin-left: 16px;
+      .media-title {
+        font-weight: 600;
+        font-size: 24px;
+      }
+    }
+  }
+}

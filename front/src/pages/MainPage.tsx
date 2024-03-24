@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import MediaItemComponent from "../components/MediaItem";
 import '../styles/MainPage.scss';
 interface MainPageProps {
-  movieList?: Array<any>;
+  moviesList?: Array<any>;
   showsList?: Array<any>;
 }
 const MainPage = (props: MainPageProps) => {
@@ -26,8 +26,8 @@ const MainPage = (props: MainPageProps) => {
           activeTab === 'movies' ?
           <div className="movielist-container">
             {
-              props.movieList?.length ?
-                props.movieList.map((item, index) => <MediaItemComponent key={'movieitem-'+index} media={item} />) :
+              props.moviesList?.length ?
+                props.moviesList.map((item, index) => <MediaItemComponent key={'movieitem-'+index} media={item} />) :
                 <p>
                   <h3>No movies available currently</h3>
                   <span>Reload the page or try again later!</span>

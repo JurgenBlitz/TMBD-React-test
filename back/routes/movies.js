@@ -13,13 +13,10 @@ router.get('/popular', (req, res) => {
   });
 });
 
-router.get('/details/:movieId', (req,res) => {
+router.get('/:movieId', (req,res) => {
   if (req.params.movieId) {
-    axios.get(`${MDBMoviesUrl}/movie/${req.params.movieId}/credits?api_key=${API_KEY_v3}`).then(response => {
-      res.json({"data": {
-        "cast": response.data.cast,
-        "crew": response.data.crew
-      }});
+    axios.get(`${MDBMoviesUrl}/movie/${req.params.movieId}?api_key=${API_KEY_v3}`).then(response => {
+      res.json({"data": response.data});
     })
     .catch(error => {
       console.log(error);

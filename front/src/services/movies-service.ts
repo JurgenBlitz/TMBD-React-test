@@ -18,5 +18,21 @@ export  const getPopularMovies = async () => {
       console.log('Error fetching popular movies:', err);
       reject();
     });
-  })
+  });
+}
+
+export const fetchMovieDetail = async (movieId: number) => {
+  return new Promise((resolve, reject) => {
+    const requestConfig: HttpRequest = {
+      endpointUrl: `movies/${movieId}`,
+      method: 'GET',
+      authRequired: true,
+    }
+    httpRequestHandler(requestConfig).then((res: any) => {
+      resolve(res.data);
+    }).catch((err) => {
+      console.log('Error fetching popular movies:', err);
+      reject();
+    });
+  });
 }

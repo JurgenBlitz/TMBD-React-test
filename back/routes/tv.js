@@ -13,4 +13,15 @@ router.get('/popular', (req, res) => {
   });
 });
 
+router.get('/:showId', (req,res) => {
+  if (req.params.showId) {
+    axios.get(`${MDBMoviesUrl}/tv/${req.params.showId}?api_key=${API_KEY_v3}`).then(response => {
+      res.json({"data": response.data});
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
+})
+
 module.exports = router;

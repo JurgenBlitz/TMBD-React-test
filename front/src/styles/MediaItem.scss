@@ -3,7 +3,7 @@
     padding: 4px;
     border: 2px solid blue;
     border-radius: 8px;
-    width: fit-content;
+    width: 150px;
     img {
       border-radius: 4px;
       width: 150px;
@@ -11,7 +11,11 @@
     .media-item-card_title {
       font-size: 22px;
       font-weight: 600;
-      margin: 8px 0;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2; /* number of lines to show */
+              line-clamp: 2; 
+      -webkit-box-orient: vertical;
     }
   }
 }

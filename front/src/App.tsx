@@ -20,7 +20,6 @@ export default function App() {
 
   const getRequiredMedia = () => {
     return Promise.all([getPopularMovies(), getPopularShows()]).then((values: any) => {
-      console.log('received values', values);
       const moviesResult = values.find((value: any) => value.listType === 'movies');
       const showsResult = values.find((value: any) => value.listType === 'shows');
       if (moviesResult?.result?.length) {

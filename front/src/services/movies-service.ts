@@ -36,3 +36,19 @@ export const fetchMovieDetail = async (movieId: number) => {
     });
   });
 }
+
+export const fetchRelatedMovies = async (movieId: number) => {
+  return new Promise((resolve, reject) => {
+    const requestConfig: HttpRequest = {
+      endpointUrl: `movies/${movieId}/similar`,
+      method: 'GET',
+      authRequired: true,
+    }
+    httpRequestHandler(requestConfig).then((res: any) => {
+      resolve(res.data);
+    }).catch((err) => {
+      console.log('Error fetching popular movies:', err);
+      reject();
+    });
+  });
+}

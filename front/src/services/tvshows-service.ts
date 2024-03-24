@@ -32,7 +32,23 @@ export const fetchShowDetail = async (showId: number) => {
     httpRequestHandler(requestConfig).then((res: any) => {
       resolve(res.data);
     }).catch((err) => {
-      console.log('Error fetching popular movies:', err);
+      console.log('Error movie detail:', err);
+      reject();
+    });
+  });
+}
+
+export const fetchRelatedShows = async (showId: number) => {
+  return new Promise((resolve, reject) => {
+    const requestConfig: HttpRequest = {
+      endpointUrl: `tv/${showId}/similar`,
+      method: 'GET',
+      authRequired: true,
+    }
+    httpRequestHandler(requestConfig).then((res: any) => {
+      resolve(res.data);
+    }).catch((err) => {
+      console.log('Error related shows:', err);
       reject();
     });
   });

@@ -12,8 +12,8 @@ const MainPage = (props: MainPageProps) => {
     <div className="main-page-container">
       <div className="button-group-container">
         <div className="button-group">
-          <button className="button-group_btn" onClick={() =>setActiveTab('movies')}>Movies</button>
-          <button className="button-group_btn" onClick={() =>setActiveTab('shows')}>Shows</button>
+          <button className={`button-group_btn ${activeTab === 'movies' ? 'selected' :''}`} onClick={() =>setActiveTab('movies')}>Movies</button>
+          <button className={`button-group_btn ${activeTab === 'shows' ? 'selected' :''}`} onClick={() =>setActiveTab('shows')}>Shows</button>
         </div>
       </div>
       <div className="list-container">

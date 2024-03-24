@@ -22,6 +22,17 @@ router.get('/:showId', (req,res) => {
       console.log(error);
     });
   }
-})
+});
+
+router.get('/:showId/similar', (req,res) => {
+  if (req.params.showId) {
+    axios.get(`${MDBMoviesUrl}/tv/${req.params.showId}/similar?api_key=${API_KEY_v3}`).then(response => {
+      res.json({"data": response.data});
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
+});
 
 module.exports = router;

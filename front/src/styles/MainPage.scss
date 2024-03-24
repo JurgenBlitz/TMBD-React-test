@@ -9,6 +9,7 @@
         background: rgb(1, 119, 210);
         border-color: transparent;
         color: #fff;
+        flex: 1;
         padding: 8px 12px;
         font-weight: 600;
       }
@@ -19,6 +20,11 @@
       .button-group_btn:last-of-type {
         border-top-right-radius: 8px;
         border-bottom-right-radius: 8px;
+      }
+      .selected {
+        background: transparent;
+        border-bottom: 2px solid rgb(1, 119, 210);
+        color: rgb(3, 37, 65);
       }
     }
   }

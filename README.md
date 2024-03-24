@@ -1,6 +1,6 @@
 # TMBD/React technical test
 
-This is a simple project with React, pulling from the renown The MOvie DB (TMDB) to display a list of popular shows and movies, as well as showing a detailed view of the selected show or moviw when clicking on it.
+This is a simple project with React, pulling from the renown The Movie DB (TMDB) to display a list of popular shows and movies, as well as showing a detailed view of the selected show or moviw when clicking on it.
 
 ## Stack
 
@@ -8,7 +8,7 @@ Although it was not specified in the technical test document, in order to circum
 
 A lot of coffee was also involved in the making of this project, althought it was not installed from npm.
 
-On the front-end I did not require
+On the front-end I did not require or use any library that was not specifically required for the project (react-redux to implement Redux,  react-router-dom to implement navigation, and so on). However I did install **Sass** since I find it allows for much more efficient styles.
 
 ## Starting the app
 

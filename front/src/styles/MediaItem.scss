@@ -1,0 +1,17 @@
+.media-item-container {
+  .media-item-card {
+    padding: 4px;
+    border: 2px solid blue;
+    border-radius: 8px;
+    width: fit-content;
+    img {
+      border-radius: 4px;
+      width: 150px;
+    }
+    .media-item-card_title {
+      font-size: 22px;
+      font-weight: 600;
+      margin: 8px 0;
+    }
+  }
+}

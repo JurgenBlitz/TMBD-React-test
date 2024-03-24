@@ -1,0 +1,35 @@
+.main-page-container {
+  padding: 24px 36px;
+  .button-group-container {
+    .button-group {
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+      .button-group_btn {
+        background: rgb(1, 119, 210);
+        border-color: transparent;
+        color: #fff;
+        padding: 8px 12px;
+        font-weight: 600;
+      }
+      .button-group_btn:first-of-type {
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+      }
+      .button-group_btn:last-of-type {
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+      }
+    }
+  }
+  .list-container {
+    margin-top: 32px;
+    .movielist-container,
+    .showslist-container {
+      display: grid;
+      grid-template-columns: minmax(170px, max-content) repeat(auto-fill, 170px) 20%;
+      grid-column-gap: 4px;
+      grid-row-gap: 8px;
+    }
+  }
+}

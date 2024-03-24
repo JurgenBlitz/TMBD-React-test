@@ -8,6 +8,8 @@ Although it was not specified in the technical test document, in order to circum
 
 A lot of coffee was also involved in the making of this project, althought it was not installed from npm.
 
+On the front-end I did not require
+
 ## Starting the app
 
 - Open two terminals from the root project.

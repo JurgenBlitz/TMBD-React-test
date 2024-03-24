@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import { getPopularMovies } from './services/movies-service';
 import { getPopularShows } from './services/tvshows-service';
+import { Provider } from 'react-redux';
 import { Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
+import { store } from '../src/store';
 import MainPage  from './pages/MainPage';
 import DetailPage from './pages/DetailPage';
 import './styles/App.scss';
@@ -36,15 +38,18 @@ export default function App() {
 
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>TMBD Search App</p>
-      </header>
-      <Routes>
-        <Route path="/" element={<MainPage moviesList={moviesList} showsList={showsList}/>}/>
-        <Route path="/detail" Component={DetailPage} /> 
-      </Routes>
-   </div>
+    <Provider store={store}>
+      <div className="App">
+        <header className="App-header">
+          <p>TMBD Search App</p>
+        </header>
+        <Routes>
+          <Route path="/" element={<MainPage moviesList={moviesList} showsList={showsList}/>}/>
+          <Route path="/detail" Component={DetailPage} /> 
+        </Routes>
+      </div>
+    </Provider>
+
   );
 }
 

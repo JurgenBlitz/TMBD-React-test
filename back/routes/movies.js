@@ -26,7 +26,7 @@ router.get('/:movieId', (req,res) => {
 
 router.get('/:movieId/similar', (req,res) => {
   if (req.params.movieId) {
-    axios.get(`${MDBMoviesUrl}/tv/${req.params.movieId}/similar?api_key=${API_KEY_v3}`).then(response => {
+    axios.get(`${MDBMoviesUrl}/movie/${req.params.movieId}/similar?api_key=${API_KEY_v3}`).then(response => {
       res.json({"data": response.data});
     })
     .catch(error => {

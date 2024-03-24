@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { movieDbImagesUrl } from "../config/config-data";
 import { fetchRelatedMovies } from "../services/movies-service";
 import { fetchRelatedShows } from "../services/tvshows-service";
+import MediaItemComponent from "../components/MediaItem";
 import '../styles/DetailPage.scss';
 
 const DetailPage = () => {
@@ -11,7 +12,7 @@ const DetailPage = () => {
   const {mediaDetail} = state;
   const [mediaPoster, setMediaPoster] = useState('');
   const [productionCompanies, setProductionCompanies] = useState('');
-  const [relatedConent, setRelatedContent] = useState([])
+  const [relatedContent, setRelatedContent] = useState([])
 
   useEffect(() => {
     if (mediaDetail.poster_path) {
@@ -25,7 +26,6 @@ const DetailPage = () => {
     } else {
       similarMovies(mediaDetail.id);
     }
-    console.log(mediaDetail);
   }, [mediaDetail]);
 
   const setProductingCompaniesString = () => {
@@ -44,7 +44,7 @@ const DetailPage = () => {
   const similarMovies = (movieId: number) => {
     fetchRelatedMovies(movieId).then((res: any) => {
       if (res?.results) {
-        setRelatedContent(res.results);
+        setRelatedContent(res.results.slice(0,4));
       }
     });
   }
@@ -52,7 +52,7 @@ const DetailPage = () => {
   const similarShows = (showId: number) => {
     fetchRelatedShows(showId).then((res: any) => {
       if (res?.results) {
-        setRelatedContent(res.results);
+        setRelatedContent(res.results.slice(0,4));
       }
     });
   }
@@ -76,7 +76,17 @@ const DetailPage = () => {
           <div className="media-releasedate">
             {mediaDetail.first_air_date? 'First aired on' + mediaDetail.first_air_date : mediaDetail.release_date}
           </div>
-          <p>{mediaDetail.overview}</p>
+          <p className="media-overview">{mediaDetail.overview}</p>
+          <div className="related-content-container">
+            <p>{relatedContent?.length ? 'You may also like:':''}</p>
+            <div className="related-content-row">
+            {
+              relatedContent?.length ? 
+                relatedContent.map((content, index) => <MediaItemComponent key={'movieitem-'+index} media={content} />)
+                : null
+            }
+            </div>
+          </div>
         </div>
       </div>
     </div>

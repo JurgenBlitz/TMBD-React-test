@@ -38,7 +38,6 @@ const MediaItemComponent = (props: MediaProps) => {
 
   const getShowDetail = (id: number) => {
     fetchShowDetail(id).then((res) => {
-      console.log('front got res', res);
       navigate('/detail', {state: {mediaDetail: res}});
     });
   }

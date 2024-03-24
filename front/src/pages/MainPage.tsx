@@ -1,19 +1,27 @@
 import React, {useState} from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { setSelectedTab } from "../store/movieAppStore";
 import MediaItemComponent from "../components/MediaItem";
 import '../styles/MainPage.scss';
+import { RootState } from "../store";
 interface MainPageProps {
   moviesList?: Array<any>;
   showsList?: Array<any>;
 }
 const MainPage = (props: MainPageProps) => {
 
-  const [activeTab, setActiveTab] = useState('movies');
+//  const [activeTab, setActiveTab] = useState('movies');
+  const dispatch = useDispatch();
+  const selectedTab = useSelector((state: RootState) => state.movieAppSlice.selectedTab);
+
   return(
     <div className="main-page-container">
       <div className="button-group-container">
         <div className="button-group">
-          <button className={`button-group_btn ${activeTab === 'movies' ? 'selected' :''}`} onClick={() =>setActiveTab('movies')}>Movies</button>
-          <button className={`button-group_btn ${activeTab === 'shows' ? 'selected' :''}`} onClick={() =>setActiveTab('shows')}>Shows</button>
+          <button className={`button-group_btn ${selectedTab === 'movies' ? 'selected' :''}`}
+            onClick={() => dispatch(setSelectedTab('movies'))}>Movies</button>
+          <button className={`button-group_btn ${selectedTab === 'shows' ? 'selected' :''}`}
+            onClick={() => dispatch(setSelectedTab('shows'))}>Shows</button>
         </div>
       </div>
       <div className="list-container">
@@ -23,7 +31,7 @@ const MainPage = (props: MainPageProps) => {
            * a bit clumsy. If there's enough time, consider refactoring it
            * so that the layout part is more readable or easier to maintain
            */
-          activeTab === 'movies' ?
+          selectedTab === 'movies' ?
           <div className="movielist-container">
             {
               props.moviesList?.length ?

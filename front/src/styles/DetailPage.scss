@@ -21,6 +21,23 @@
         font-weight: 600;
         font-size: 24px;
       }
+      .media-releasedate {
+        font-style: italic;
+      }
+      .media-overview {
+        font-size: 20px;
+        font-style: italic;
+      }
+      .related-content-container {
+        margin-top: 36px;
+        p {
+          font-weight: 700;
+        }
+        .related-content-row {
+          display: flex;
+          gap: 8px;
+        }
+      }
     }
   }
 }
